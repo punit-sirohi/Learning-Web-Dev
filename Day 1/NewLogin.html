@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Next Level Auth</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#0f2027;
+}
+
+/* ===== Animated Gradient Background ===== */
+.background{
+  position:absolute;
+  width:200%;
+  height:200%;
+  background: radial-gradient(circle at 20% 30%, #00c6ff55, transparent 40%),
+              radial-gradient(circle at 80% 70%, #0072ff55, transparent 40%),
+              radial-gradient(circle at 50% 50%, #00f2fe33, transparent 50%);
+  animation: rotateBg 20s linear infinite;
+}
+
+@keyframes rotateBg{
+  from{ transform:rotate(0deg); }
+  to{ transform:rotate(360deg); }
+}
+
+/* Floating particles */
+.particle{
+  position:absolute;
+  width:6px;
+  height:6px;
+  background:#00c6ff;
+  border-radius:50%;
+  opacity:0.6;
+  animation: float 8s infinite ease-in-out;
+}
+
+@keyframes float{
+  0%{ transform:translateY(0px); opacity:0.6;}
+  50%{ transform:translateY(-30px); opacity:1;}
+  100%{ transform:translateY(0px); opacity:0.6;}
+}
+
+/* ===== Login Container ===== */
+.container{
+  position:relative;
+  width:380px;
+  padding:40px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(25px);
+  border-radius:20px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  color:white;
+  z-index:10;
+
+  /* Popup animation */
+  animation: popup 1s ease forwards, idleFloat 4s ease-in-out infinite 1s;
+  transform:scale(0.6);
+  opacity:0;
+}
+
+@keyframes popup{
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+@keyframes idleFloat{
+  0%,100%{ transform:translateY(0px);}
+  50%{ transform:translateY(-10px);}
+}
+
+h2{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.input-group{
+  position:relative;
+  margin-bottom:20px;
+}
+
+.input-group input{
+  width:100%;
+  padding:12px;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.3);
+  border-radius:10px;
+  color:white;
+  outline:none;
+}
+
+.input-group label{
+  position:absolute;
+  left:12px;
+  top:12px;
+  font-size:14px;
+  color:#ccc;
+  pointer-events:none;
+  transition:0.3s;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label{
+  top:-8px;
+  left:10px;
+  font-size:12px;
+  background:#0f2027;
+  padding:0 5px;
+  color:#00c6ff;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  background:linear-gradient(45deg,#00c6ff,#0072ff);
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  box-shadow:0 0 25px #00c6ff;
+  transform:translateY(-3px);
+}
+
+.toggle{
+  margin-top:15px;
+  text-align:center;
+  font-size:14px;
+}
+
+.toggle span{
+  color:#00c6ff;
+  cursor:pointer;
+}
+
+.hidden{
+  display:none;
+}
+
+/* Custom cursor glow */
+.cursor{
+  position:fixed;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:rgba(0,198,255,0.6);
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  filter:blur(6px);
+  z-index:999;
+}
+</style>
+</head>
+<body>
+
+<div class="background"></div>
+
+<!-- Random floating particles -->
+<script>
+for(let i=0;i<20;i++){
+  let p=document.createElement("div");
+  p.className="particle";
+  p.style.left=Math.random()*100+"vw";
+  p.style.top=Math.random()*100+"vh";
+  p.style.animationDuration=(6+Math.random()*6)+"s";
+  document.body.appendChild(p);
+}
+</script>
+
+<div class="container">
+  <h2 id="form-title">Login</h2>
+
+  <form id="login-form">
+    <div class="input-group">
+      <input type="text" required placeholder=" ">
+      <label>Username</label>
+    </div>
+    <div class="input-group">
+      <input type="password" required placeholder=" ">
+      <label>Password</label>
+    </div>
+    <button type="submit">Login</button>
+  </form>
+
+  <form id="register-form" class="hidden">
+    <div class="input-group">
+      <input type="text" required placeholder=" ">
+      <label>Username</label>
+    </div>
+    <div class="input-group">
+      <input type="email" required placeholder=" ">
+      <label>Email</label>
+    </div>
+    <div class="input-group">
+      <input type="password" required placeholder=" ">
+      <label>Password</label>
+    </div>
+    <button type="submit">Register</button>
+  </form>
+
+  <div class="toggle">
+    <span id="toggle-text">Don't have an account? Register</span>
+  </div>
+</div>
+
+<div class="cursor"></div>
+
+<script>
+const toggleText = document.getElementById("toggle-text");
+const loginForm = document.getElementById("login-form");
+const registerForm = document.getElementById("register-form");
+const title = document.getElementById("form-title");
+
+toggleText.addEventListener("click", () => {
+  loginForm.classList.toggle("hidden");
+  registerForm.classList.toggle("hidden");
+
+  if(loginForm.classList.contains("hidden")){
+    title.textContent="Register";
+    toggleText.textContent="Already have an account? Login";
+  } else {
+    title.textContent="Login";
+    toggleText.textContent="Don't have an account? Register";
+  }
+});
+
+/* Cursor glow */
+const cursor=document.querySelector(".cursor");
+document.addEventListener("mousemove", e=>{
+  cursor.style.left=e.clientX+"px";
+  cursor.style.top=e.clientY+"px";
+});
+</script>
+
+</body>
+</html>
