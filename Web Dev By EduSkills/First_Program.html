@@ -10,6 +10,8 @@
 <body>
     Hello! Punit Sirohi.
     <br>
+
+    <!--Heading Tags-->
     <h1>Heading 1</h1>
     <h2>Heading 2</h2>
     <h3>Heading 3</h3>
@@ -19,10 +21,14 @@
     <em>Hi Everyone</em>
     <br>
     <br>
+
+    <!--Strong Tag-->
     <strong>Punit Sirohi</strong>
     <br>
     <strong>Hey There</strong>
     <br>
+
+    <!--Unordered List-->
     <h3>Unordered List Tag</h3>
     <ul type="square">
         <li>Car</li>
@@ -34,6 +40,8 @@
         <li>Bus</li>
         <dl>Hello There my name is bus and I am a public transport vehicle.</dl>
     </ul>
+
+    <!--Ordered List-->
     <h3>Ordered List Tag</h3>
     <ol>
         <li>BMW</li>
@@ -42,14 +50,16 @@
         <li>Pagani</li>
     </ol>
     <br>
-    <h3>Anchor Tag</h3>
+
+    <!--Anchor Tag-->
     <a href="https://www.google.com">Google</a>
     <br>
     <a href="https://www.linkedin.com/in/punit-sirohi">My Linkedin Account</a>
     <br>
     <a href="https://github.com/punit-sirohi">My Github Account</a>
     <br>
-    <h3>Image Tag</h3>
+
+    <!--Image Tag-->
     <img
         src="https://static.vecteezy.com/system/resources/thumbnails/053/733/179/small/every-detail-of-a-sleek-modern-car-captured-in-close-up-photo.jpg">
     <br>
@@ -63,6 +73,8 @@
         sleek curves, and a luxury interior that feels like a private jet cockpit. It's basically a perfect mix of
         engineering, power, and royal-level luxury.</p>
     <br>
+
+    <!--Video Tag-->
     <video src="Video1.mp4" width="320" height="240" controls > Nissan GTR</video>
     
     <!-- Audio Embed -->
@@ -70,14 +82,100 @@
     <audio controls>
     <source src="sample-audio.mp3" type="audio/mp3"> Your browser does not support the audio element.
     </audio>
+
     <br><br>
+
 
     <!-- Video Embed -->
     <h2>Watch a Video Sample</h2>
     <video width="320" height="240" controls>
     <source src="sample-video.mp4" type="video/mp4"> Your browser does not support the video tag.
     </video>
+    <br>
 
+
+    <!--SVG TAG-->
+    <svg height="100", width="100">
+        <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill=" red"/>
+    </svg>
+    <br>
+    <svg height="200", width="200">
+        <circle cx="100" cy="100" r="80" stroke="blue" stroke-width="5" fill="green"/>
+    </svg>
+    <br>
+    <!--TABLE TAG-->
+    <table>
+        <tr>
+        <th>Name</th>
+        <th>Class/Sec</th>
+        <th>Roll NO.</th>
+        <th>Mob NO,</th>
+        </tr>
+        <td>Punit</td>
+        <td>2CSE25</td>
+        <td>1113</td>
+        <td>9634471376</td>
+       
+    </table>
+    <br><br>
+
+
+    <!--Form Tags-->
+    <h2>Fill Your Details</h2>
+
+    <form action="/submit" method="post">
+
+        <!--Text Input For User-->
+        <lable for="username">Username:</lable>
+        <input type="text" id="username" name="username" required>
+
+        <br><br>
+
+        <!--Email and Password-->
+        <lable for="Email">Email:</lable>
+        <input type="email" id="email" name="Email" required>
+        <br><br>
+        <lable for="Password">Password:</lable>
+        <input type="password" id="password" name="password" required>
+
+        <br><br>
+
+        <!--Radio Button for Gender-->
+        <!--Male-->
+        <lable for="Gender">Gender:</lable>
+        <input type="radio" id="Male" name="gender" value="Male">
+        <label for="Male">Male</label>
+        <!--Female-->
+        <input type="radio" id="Female" name="gender" value="Female">
+        <lable for="Female">Female</lable>
+        
+        <br><br>
+
+        <!--Dropdown Box-->
+        <lable for="course">Course:</lable>
+        <select id="course" name="course">
+            <option value="">--Select Course--</option>
+            <option value="BBA">BBA</option>
+            <option value="BCA">BCA</option>
+            <option value="B.TECH">B.TECH</option>
+            <option value="MCA">MCA</option>
+            <option value="MBA">MBA</option>
+            <option value="M.TECH">M.TECH</option>
+        </select>
+
+        <br><br>
+
+        <!--Feedback-->
+        <lable for="feedback">Feedback:</lable>
+        <br>
+        <textarea id="feedback" name="feedback" rows="8" cols="40"></textarea>
+
+        <br><br>
+
+        <!--Submit-->
+        <input type="submit" value="submit">
+
+    </form>
 
 </body>
 
