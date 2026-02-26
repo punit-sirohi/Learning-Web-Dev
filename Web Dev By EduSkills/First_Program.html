@@ -127,16 +127,16 @@
 
         <!--Text Input For User-->
         <lable for="username">Username:</lable>
-        <input type="text" id="username" name="username" required>
+        <input type="text" id="username" name="username" placeholder="Enter Your Name" required>
 
         <br><br>
 
         <!--Email and Password-->
         <lable for="Email">Email:</lable>
-        <input type="email" id="email" name="Email" required>
+        <input type="email" id="email" name="Email" placeholder="Enter Your Email" required>
         <br><br>
         <lable for="Password">Password:</lable>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" name="password" placeholder="Enter Your Password" required>
 
         <br><br>
 
@@ -168,7 +168,17 @@
         <!--Feedback-->
         <lable for="feedback">Feedback:</lable>
         <br>
-        <textarea id="feedback" name="feedback" rows="8" cols="40"></textarea>
+        <textarea id="feedback" name="feedback" rows="8" cols="40" placeholder="Please Enter Your Feedback"></textarea>
+        <br><br>
+
+        <!--Checkbox Tag-->
+        <input type="checkbox" id="Subscribe" name="Subscribe" value="yes">
+        <lable for="Subscribe">Subscribe to newsletter</lable>
+
+        <br><br>
+
+        <input type="button" id="button" name="button" value="⏻">
+        <lable for="button">Don't Press This Button</lable>
 
         <br><br>
 
@@ -176,6 +186,45 @@
         <input type="submit" value="submit">
 
     </form>
+    <br>
+
+    <table border="1">
+        <tr>
+            <td>Row1, Column1</td>
+            <td rowspan="2">Merged rows</td>
+        </tr>
+        <tr>
+            <td>Row2, Column2</td>
+        </tr>
+        
+    </table>
+    <br><br>
+
+    <table border="1">
+        <tr>
+            <td colspan="2">Merge Column</td>
+        </tr>
+        <tr>
+            <td>Column1</td>
+            <td>Column2</td>
+        </tr>
+
+
+    </table>
+    <br>
+
+    <!--Combining Textarea and select tag-->
+    <form action="/submit">
+        <textarea name="comment" row="50" cols="50">Enter Your Comment Here...</textarea>
+        <select name="Fruits">
+            <option value="Apple">Apple</option>
+            <option value="Orange">Orange</option>
+            <option value="Pinapple">Pinapple</option>
+            <option valur="Cherry">Cherry</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+
 
 </body>
 
